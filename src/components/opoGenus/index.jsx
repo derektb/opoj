@@ -28,6 +28,9 @@ class OpoGenus extends Component {
   render() {
     const { grandForm, majorForms, minorForms } = this.props.genus;
     const { selectedForm, showTilings } = this.state;
+    const tilings = grandForm.tilings();
+    const totalTilings =
+      tilings.length * (majorForms.length + minorForms.length);
 
     return (
       <div className="opo-genus">
@@ -35,6 +38,15 @@ class OpoGenus extends Component {
           {grandForm.name()}
           <button onClick={this.handleShowTilings}>🖌</button>
         </h3>
+        <p>
+          {totalTilings === tilings.length
+            ? "One form with "
+            : "Each form has "}
+          <strong>
+            {tilings.length} tiling{tilings.length > 1 ? "s" : ""}
+          </strong>{" "}
+          <em>({totalTilings} total)</em>
+        </p>
         <div className="genus-data">
           <div className="genus-formal-data">
             <section className="genus-selected-form">
@@ -43,20 +55,22 @@ class OpoGenus extends Component {
             <section className="genus-forms genus-major-forms">
               {majorForms.map((opo) => (
                 <section
+                  key={"majforms-" + opo.name()}
                   className={opoClasses(opo, selectedForm, grandForm)}
                   onClick={() => this.handleSelectForm(opo)}
                 >
-                  <Opo display={"mini"} opo={opo} key={opo.name()} />
+                  <Opo display={"mini"} opo={opo} />
                 </section>
               ))}
             </section>
             <section className="genus-forms genus-minor-forms">
               {minorForms.map((opo) => (
                 <section
+                  key={"minforms-" + opo.name()}
                   className={opoClasses(opo, selectedForm)}
                   onClick={() => this.handleSelectForm(opo)}
                 >
-                  <Opo display={"mini"} opo={opo} key={opo.name()} />
+                  <Opo display={"mini"} opo={opo} />
                 </section>
               ))}
             </section>
@@ -64,11 +78,11 @@ class OpoGenus extends Component {
           <div className="genus-tiling-data">
             {showTilings &&
               selectedForm.tilings().map((tiling) => (
-                <section className="tiling">
-                  <OpoSkribita
-                    tiling={tiling}
-                    key={selectedForm.name() + tiling.join("-")}
-                  />
+                <section
+                  key={selectedForm.name() + tiling.join("-")}
+                  className="tiling"
+                >
+                  <OpoSkribita tiling={tiling} />
                 </section>
               ))}
           </div>

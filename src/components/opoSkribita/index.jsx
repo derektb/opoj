@@ -1,14 +1,21 @@
 import "./styles.css";
 import masonita from "../../data/faces/masonita";
 
+const faces = { masonita };
+
 const OpoSkribita = ({ tiling, face = "masonita" }) => {
   return (
-    <div className="skribado">
-      {tiling.map((stroke) => (
+    <div
+      className="skribado"
+      onClick={() => {
+        console.log(tiling);
+      }}
+    >
+      {tiling.map((stroke, i) => (
         <img
-          key={tiling.join("-") + stroke}
+          key={tiling.join("-") + "--" + i}
           className="streko"
-          src={masonita[stroke]}
+          src={faces[face][stroke]}
         />
       ))}
     </div>
