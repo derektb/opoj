@@ -8,7 +8,7 @@
   flex-flow: column nowrap;
 }
 
-#simple-output section {
+#simple-output > div > section {
   display: flex;
   flex-flow: row wrap;
 }

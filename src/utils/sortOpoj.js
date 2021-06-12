@@ -1,6 +1,5 @@
 function sortOpoj(family) {
-    // possibly the family should be a smarter object and just know stuff about itself, but in lieu of that:
-    const size = family[Object.keys(family)[0]].opo.length;
+        const size = family[Object.keys(family)[0]].grand.length;
 
     const sortedGenuses = [];
     for (let i = 0; i <= size; i++) {

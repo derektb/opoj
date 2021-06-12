@@ -1,0 +1,43 @@
+.genus-data {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+.genus-formal-data,
+.genus-tiling-data {
+}
+
+.genus-forms {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.genus-major-forms {
+  background-color: rgba(255, 230, 100, 0.4);
+}
+
+.genus-minor-forms {
+  background-color: rgba(125, 225, 50, 0.4);
+}
+
+.genus-forms .opo .opo-cell.opo-cell-on {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.genus-forms .opo-form.selected .opo .opo-cell.opo-cell-on {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.genus-tiling-data .tiling {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 0.3em;
+  border-radius: 0.2em;
+  margin: 0.5em;
+  font-size: 0.8em;
+}
+
+.genus-tiling-data .tiling .skribado {
+  width: 4em;
+  height: 4em;
+}
