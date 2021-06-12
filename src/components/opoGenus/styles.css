@@ -4,10 +4,6 @@
   align-items: flex-start;
 }
 
-.genus-formal-data,
-.genus-tiling-data {
-}
-
 .genus-forms {
   display: flex;
   flex-flow: row nowrap;

@@ -1,6 +1,10 @@
 class Opo {
     constructor(arr = []) {
-        this.arr = [...arr];
+        if (arr.length) { 
+            this.arr = [...arr];
+        } else {
+            // attempting to create opo from JSON
+        }
     }
 
     name() {

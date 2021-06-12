@@ -6,9 +6,10 @@ import OpoGenus from "./components/opoGenus";
 import NAŬOPOJ from "./data/naŭopoj.json";
 
 import Opo from "./data/opo";
+import OpoModal from "./components/opoModal";
 
 class App extends Component {
-  state = {};
+  state = { selectedGenus: null };
 
   testOpoClasses() {
     let arr = [0, 1, 1, 0, 0, 1, 1, 1, 0];
@@ -21,7 +22,17 @@ class App extends Component {
     console.log(opo, "inverse", inv.name(), inv.count());
   }
 
+  handleCloseModal = () => {
+    this.setState({ selectedGenus: null });
+  };
+
+  handleInspectGenus = (genus) => {
+    this.setState({ selectedGenus: genus });
+  };
+
   render() {
+    const { selectedGenus } = this.state;
+
     const degree = 3;
     const naŭopoj = generateOpoj(degree);
     // const sortedNaŭopoj = sortOpoj(naŭopoj);
@@ -67,13 +78,25 @@ class App extends Component {
               <h3>{set.length > 1 ? `${set.length} Genera` : `1 Genus`}</h3>
               <section>
                 {set.map((naŭopo, j) => (
-                  <OpoGenus genus={naŭopo} key={"opogenus" + i + "-" + j} />
+                  <OpoGenus
+                    genus={naŭopo}
+                    key={"opogenus" + i + "-" + j}
+                    onInspect={this.handleInspectGenus}
+                  />
                 ))}
               </section>
             </div>
           ))}
         </div>
-        {/* <pre>{JSON.stringify(sortedNaŭopoj)}</pre> */}
+        {selectedGenus && (
+          <div id="genus-inspect-modal">
+            <div
+              className="modal-background"
+              onClick={this.handleCloseModal}
+            ></div>
+            <OpoModal genus={selectedGenus} />
+          </div>
+        )}
       </div>
     );
   }

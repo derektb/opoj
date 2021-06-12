@@ -13,7 +13,6 @@ class OpoGenus extends Component {
 
     this.state = {
       selectedForm: grandForm,
-      showTilings: false,
     };
   }
 
@@ -21,24 +20,22 @@ class OpoGenus extends Component {
     this.setState({ selectedForm: opo });
   };
 
-  handleShowTilings = () => {
-    this.setState({ showTilings: !this.state.showTilings });
+  handleInspect = () => {
+    this.props.onInspect(this.props.genus);
   };
 
   render() {
     const { grandForm, majorForms, minorForms } = this.props.genus;
-    const { selectedForm, showTilings } = this.state;
+    const { selectedForm } = this.state;
     const tilings = grandForm.tilings();
     const totalTilings =
       tilings.length * (majorForms.length + minorForms.length);
 
     return (
       <div className="opo-genus">
-        <h3>
-          {grandForm.name()}
-          <button onClick={this.handleShowTilings}>🖌</button>
-        </h3>
+        <h3>{grandForm.name()}</h3>
         <p>
+          <button onClick={this.handleInspect}>👁</button>{" "}
           {totalTilings === tilings.length
             ? "One form with "
             : "Each form has "}
@@ -74,17 +71,6 @@ class OpoGenus extends Component {
                 </section>
               ))}
             </section>
-          </div>
-          <div className="genus-tiling-data">
-            {showTilings &&
-              selectedForm.tilings().map((tiling) => (
-                <section
-                  key={selectedForm.name() + tiling.join("-")}
-                  className="tiling"
-                >
-                  <OpoSkribita tiling={tiling} />
-                </section>
-              ))}
           </div>
         </div>
       </div>

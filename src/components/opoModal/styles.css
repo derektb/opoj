@@ -1,0 +1,111 @@
+.opo-modal {
+  background-color: white;
+  border-radius: 1em;
+  padding: 1em;
+  max-width: 56vw;
+  max-height: 90vh;
+}
+
+.opo-modal h2,
+.opo-modal h3,
+.opo-modal h4,
+.opo-modal h5 {
+  margin-top: 0;
+}
+
+.opo-modal h2 {
+  font-weight: normal;
+}
+
+.opo-modal .form-info {
+  display: flex;
+  justify-content: center;
+}
+
+.opo-modal .grand-form .opo {
+  font-size: 5em;
+}
+
+.opo-modal .all-forms {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 1.5em;
+}
+
+.opo-modal .all-forms .form-listings {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.opo-modal .all-forms .selected-form {
+  width: 100%;
+}
+
+.opo-modal h4 {
+  width: 100%;
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.opo-modal .all-forms .form-listing {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 1 auto;
+}
+
+.opo-modal .all-forms .form-listing.major-forms {
+  background-color: rgba(255, 230, 100, 0.4);
+}
+
+.opo-modal .all-forms .form-listing.minor-forms {
+  background-color: rgba(125, 225, 50, 0.4);
+}
+
+.opo-modal .all-forms .form-listing {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+.opo-modal .all-forms .form-listing + .form-listing {
+  margin-left: 0.5em;
+}
+
+.opo-modal .all-forms .form-listing-item {
+  font-size: 0.6em;
+  margin: 0.25em;
+}
+
+.opo-modal .all-forms .form-listing-item .opo .opo-cell-on {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.opo-modal .all-forms .form-listing-item.selected .opo .opo-cell-on {
+  background-color: black;
+}
+
+.opo-modal .tiling-info h3 {
+  margin-bottom: 0.5em;
+}
+
+.opo-modal .tiling-info h3 .opo {
+  display: inline-grid;
+  font-size: 0.25em;
+  top: -2em;
+  position: relative;
+}
+
+.opo-modal .all-tilings {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  max-height: 22em;
+  overflow: auto;
+}
+
+.opo-modal .all-tilings .tiling {
+  font-size: 4.3em;
+  margin: 0.1em;
+}

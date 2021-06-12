@@ -1,5 +1,10 @@
+import OpoData from './opo';
+
 class OpoGenus {
     constructor(opo) {
+        if (!(opo instanceof OpoData)) {
+            // creating genus from supplied JSON
+        }
         const forms = generateForms(opo)
 
         let highestForm = {val: -Infinity, form: null};
